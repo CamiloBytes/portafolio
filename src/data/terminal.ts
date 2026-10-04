@@ -15,53 +15,25 @@ export interface TerminalAction {
 
 export const tabs: TerminalAction[] = [
   { id: "bio", label: "whoami.sh", command: "cat bio.md", tone: "primary" },
-  {
-    id: "skills",
-    label: "skills.json",
-    command: "cat skills.json | jq .",
-    tone: "secondary",
-  },
-  {
-    id: "contact",
-    label: "contact.sh",
-    command: "curl -s https://api.alex.dev/v1/contact",
-    tone: "secondary",
-  },
+  { id: "skills", label: "skills.json", command: "cat skills.json | jq .", tone: "secondary" },
+  { id: "contact", label: "contact.sh", command: "curl -s https://api.camilo.dev/v1/contact", tone: "secondary" },
 ];
 
 export const commands: TerminalAction[] = [
   tabs[0],
-  {
-    id: "metrics",
-    label: "curl /metrics",
-    command: "curl /metrics",
-    tone: "secondary",
-  },
-  {
-    id: "projects",
-    label: "view projects",
-    command: "view projects",
-    tone: "primary",
-  },
+  { id: "metrics", label: "curl /metrics", command: "curl /metrics", tone: "secondary" },
+  { id: "projects", label: "view projects", command: "view projects", tone: "primary" },
 ];
 
 export const outputByView: Record<ViewId, TerminalLine[]> = {
   bio: [
     { text: "Camilo Parra - Desarrollador de Software" },
-    { text: "[Barranquilla, Colombia UTC+1] / Remoto Global." },
-    {
-      text: "Desarrollador de software enfocado en la creación de aplicaciones web modernas. Especializado en React, Next.js, TypeScript, Node.js y Express, con conocimientos en bases de datos y desarrollo de APIs.",
-      tone: "muted",
-    },
-    {
-      text: "[Disponibilidad: Inmediata para proyectos de alta complejidad tecnica]",
-      tone: "primary",
-    },
+    { text: "[Barranquilla, Colombia UTC-5] / Remoto Global." },
+    { text: "Desarrollador de software enfocado en la creación de aplicaciones web modernas. Especializado en React, Next.js, TypeScript, Node.js y Express, con conocimientos en bases de datos y desarrollo de APIs.", tone: "muted" },
+    { text: "[Disponibilidad: Inmediata para proyectos de alta complejidad técnica]", tone: "primary" },
   ],
   skills: [
-    {
-      text: '"core_languages": ["TypeScript", "JavaScript", "Python", "SQL"],',
-    },
+    { text: '"core_languages": ["TypeScript", "JavaScript", "Python", "SQL"],' },
     { text: '"frontend": ["React", "Next.js", "Tailwind CSS"],' },
     { text: '"backend": ["Node.js", "Express", "Prisma", "REST APIs"],' },
     { text: '"database": ["PostgreSQL", "SQL"]', tone: "primary" },
@@ -85,10 +57,7 @@ export const outputByView: Record<ViewId, TerminalLine[]> = {
     { text: "01  EventMesh - Eventual sync engine", tone: "primary" },
     { text: "02  Atlas - Multi-region data sharding" },
     { text: "03  Pulse - Low-latency telemetry pipeline" },
-    {
-      text: "Use the project cards below to inspect each system.",
-      tone: "muted",
-    },
+    { text: "Use the project cards below to inspect each system.", tone: "muted" },
     { text: "STATUS: systems operational", tone: "primary" },
   ],
 };

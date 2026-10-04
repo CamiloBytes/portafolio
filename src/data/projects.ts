@@ -1,20 +1,4 @@
-export interface ProjectMetric {
-  label: string;
-  value: string;
-  secondaryLabel: string;
-  secondaryValue: string;
-}
-
-export interface Project {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  metric: ProjectMetric;
-  tags: string[];
-  accent: "primary" | "secondary";
-  href: string;
-}
+import type { Project } from "../types/projects";
 
 export const projects: Project[] = [
   {
@@ -32,6 +16,14 @@ export const projects: Project[] = [
     tags: ["Rust", "Raft", "gRPC", "LSM-Trees"],
     accent: "primary",
     href: "#contact",
+    repoUrl: "https://github.com/CamiloBytes",
+    rfc: {
+      architecture:
+        "Topología Leader-Follower con Raft Consensus protocol. Motor de almacenamiento LSM-Tree con compresión concurrente en segundo plano.",
+      protocol: "gRPC sobre HTTP/2 con serialización flatbuffers zero-copy.",
+      guarantees: "Consistencia linealizable (CP en teorema CAP) con quórum mayoritario.",
+      benchmarks: "p99 < 1.2ms en cargas de escritura concurrentes de 100k ops/seg.",
+    },
   },
   {
     id: "aurapulse",
@@ -48,6 +40,14 @@ export const projects: Project[] = [
     tags: ["Go", "eBPF", "Kafka", "Kubernetes"],
     accent: "secondary",
     href: "#contact",
+    repoUrl: "https://github.com/CamiloBytes",
+    rfc: {
+      architecture:
+        "Sondas en espacio de kernel (Linux eBPF kprobes/tracepoints) que capturan sockets TCP sin inyección en espacio de usuario.",
+      protocol: "Buffer circular lockless de kernel hacia pipeline de ingesta Kafka.",
+      guarantees: "Garantía at-least-once con particionamiento de tópicos por cluster ID.",
+      benchmarks: "Consumo de CPU inferior a 1.2% por nodo worker con tasa de 1.8M spans/seg.",
+    },
   },
   {
     id: "kubelens",
@@ -64,5 +64,13 @@ export const projects: Project[] = [
     tags: ["Rust", "Ratatui", "K8s API", "Docker"],
     accent: "primary",
     href: "#contact",
+    repoUrl: "https://github.com/CamiloBytes",
+    rfc: {
+      architecture:
+        "TUI asíncrona renderizada con Ratatui y tokio runtime. Conexión directa a Kubernetes API server vía WebSockets duplex.",
+      protocol: "Diff de árbol de estados de pods y nodos en memoria con algoritmo de double-buffering.",
+      guarantees: "Cero leaks de descriptores de archivos incluso con reconexiones forzadas.",
+      benchmarks: "Frame rate estable de 60fps con refresco de métricas en 50ms.",
+    },
   },
 ];

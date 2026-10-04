@@ -1,8 +1,4 @@
-export interface HeroStat {
-  value: string;
-  label: string;
-  tone: "primary" | "secondary" | "accent";
-}
+import type { HeroStat } from "../types/hero";
 
 export const heroStats: HeroStat[] = [
   { value: "99.99% SLA", label: "Uptime en prod", tone: "primary" },
