@@ -2,103 +2,104 @@ import type { StackData } from "../types/stack";
 
 export const stackData: StackData = {
   header: {
-    subtitle: "CAPACIDADES TÉCNICAS & ARQUITECTURA",
+    subtitle: "TECNOLOGÍAS PRESENTES EN MIS PROYECTOS",
     title: "Stack Tecnológico",
-    comment: "Modular, de alto rendimiento y comprobado",
+    comment: "Herramientas que uso para construir productos web y APIs",
   },
   coreLanguages: {
     title: "Lenguajes Núcleo",
-    badge: "Tier 1",
+    badge: "Base",
     items: [
       {
-        name: "Rust",
-        description: "Concurrencia segura, Tokio, Zero-cost abstractions",
-        years: "4+ años",
-        dotColor: "#f97316",
-      },
-      {
-        name: "Go (Golang)",
-        description: "Microservicios de alta concurrencia, Goroutines, gRPC",
-        years: "5+ años",
-        dotColor: "#00f2fe",
-      },
-      {
         name: "TypeScript",
-        description: "Tipado estricto, APIs distribuidas, Node / Deno runtimes",
-        years: "6+ años",
+        description: "Aplicaciones Next.js, APIs Node.js y tipado de extremo a extremo",
+        years: "3 proyectos",
         dotColor: "#38bdf8",
       },
       {
-        name: "Python",
-        description: "Data tooling, scripts de automatización, orquestación ML",
-        years: "5+ años",
+        name: "JavaScript",
+        description: "Runtime Node.js, tooling y lógica de integración",
+        years: "Backend",
         dotColor: "#eab308",
+      },
+      {
+        name: "PHP",
+        description: "Laravel 12 para APIs REST, autenticación y persistencia",
+        years: "Laravel",
+        dotColor: "#a78bfa",
+      },
+      {
+        name: "SQL",
+        description: "Modelado relacional y consultas sobre PostgreSQL",
+        years: "Prisma",
+        dotColor: "#00f2fe",
       },
     ],
   },
   cloudSystems: {
     title: "Sistemas, Cloud & Datos",
-    badge: "Infraestructura",
+    badge: "Backend",
     tools: [
       {
-        name: "Kubernetes",
-        description: "Custom CRDs & Operators",
-      },
-      {
-        name: "Apache Kafka",
-        description: "Event streams de alta tasa",
-      },
-      {
-        name: "AWS Ecosystem",
-        description: "EKS, SQS, RDS, IAM",
-      },
-      {
         name: "PostgreSQL",
-        description: "Partitioning & Tuning",
+        description: "Memoria persistente para chats y proyectos",
       },
       {
-        name: "Docker / containerd",
-        description: "Multi-stage builds mínimos",
+        name: "Prisma ORM",
+        description: "Esquemas, migraciones y acceso tipado a datos",
       },
       {
-        name: "Redis Cluster",
-        description: "Pub/Sub & Caching",
+        name: "Docker",
+        description: "Contenedores reproducibles para APIs Node y Laravel",
+      },
+      {
+        name: "REST / SSE",
+        description: "APIs HTTP y respuestas de IA en streaming",
+      },
+      {
+        name: "NextAuth",
+        description: "Autenticación y sesiones para aplicaciones full-stack",
+      },
+      {
+        name: "Laravel Sanctum",
+        description: "Autenticación para endpoints protegidos",
       },
     ],
-    paradigmsNote: "Paradigmas: Sharding, CAP Theorem, Consistencia Eventual",
+    paradigmsNote: "Persistencia relacional · APIs stateless · streaming de respuestas",
   },
   frontendControl: {
-    title: "Frontend & Interfaces de Control",
-    badge: "UI Engine",
+    title: "Frontend & Experiencia",
+    badge: "UI",
     description:
-      "Diseño dashboards de operaciones tácticos y consolas interactivas donde la velocidad perceptiva y la ausencia de stuttering son vitales.",
+      "Construyo interfaces web con Next.js y React, combinando formularios validados, estado global y componentes accesibles.",
     tags: [
-      "Next.js 15 (App Router)",
+      "Next.js 16 (App Router)",
+      "React 19",
       "Tailwind CSS",
-      "WebGL / Three.js",
-      "GraphQL / Apollo",
-      "WebSockets",
+      "React Hook Form",
+      "Zod",
+      "Zustand",
     ],
   },
   architectureMethodology: {
     title: "Arquitectura & Metodología",
-    badge: "Estrategia",
+    badge: "Patrones",
     patterns: [
       {
-        name: "Event-Driven Design",
-        description: "Desacoplamiento asíncrono con backpressure adaptativo.",
+        name: "Full-stack por dominios",
+        description: "Frontend, backend y persistencia organizados alrededor de cada producto.",
       },
       {
-        name: "Zero-Trust Security",
-        description: "mTLS entre microservicios, Vault y gestión de secrets efímeros.",
+        name: "CRUD REST",
+        description: "Endpoints HTTP claros para crear, consultar, actualizar y eliminar recursos.",
       },
       {
-        name: "CI/CD GitOps",
-        description: "ArgoCD, GitHub Actions con pipelines de seguridad estáticos.",
+        name: "Validación tipada",
+        description: "TypeScript, Zod y React Hook Form para reducir errores de entrada.",
       },
       {
-        name: "TDD & Fuzzing",
-        description: "Chaos engineering, suite de pruebas automatizadas y benchs.",
+        name: "Streaming con contexto",
+        description: "SSE para respuestas de IA, memoria persistente e instrucciones dinámicas.",
       },
     ],
   },
