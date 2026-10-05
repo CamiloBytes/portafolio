@@ -1,4 +1,39 @@
-import type { ContactData } from "../types/contact";
+export interface SocialLink {
+  label: string;
+  href: string;
+  iconType: "github" | "linkedin" | "twitter";
+}
+
+export interface ContactData {
+  header: {
+    subtitle: string;
+    title: string;
+    comment: string;
+  };
+  info: {
+    title: string;
+    description: string;
+    emailLabel: string;
+    email: string;
+    pgpLabel: string;
+    pgpKey: string;
+    pgpSubtext: string;
+  };
+  socials: SocialLink[];
+  form: {
+    windowTitle: string;
+    statusBadge: string;
+    senderLabel: string;
+    senderPlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    messageLabel: string;
+    messagePrefix: string;
+    messagePlaceholder: string;
+    defaultStatus: string;
+    submitButton: string;
+  };
+}
 
 export const contactData: ContactData = {
   header: {
@@ -29,7 +64,7 @@ export const contactData: ContactData = {
     },
     {
       label: "X (Twitter)",
-      href: "https://x.com",
+      href: "https://twitter.com",
       iconType: "twitter",
     },
   ],
