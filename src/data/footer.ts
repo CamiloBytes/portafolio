@@ -2,7 +2,7 @@ import type { FooterData } from "../types/footer";
 
 export const footerData: FooterData = {
   systemTag: "sys://Camilo.devnova.dev",
-  copyright: "© 2025 Alex Chen. Distributed Systems & Core Infrastructure.",
+  copyright: "© 2025 Camilo Parra. Distributed Systems & Core Infrastructure.",
   status: {
     indicatorColor: "#00f2fe",
     label: "Status: Optimal",

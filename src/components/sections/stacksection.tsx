@@ -25,7 +25,7 @@ export const StackSection: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-40px" }}
-        className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+        className="stack-grid grid grid-cols-1 gap-6"
       >
         {/* 1. Lenguajes Núcleo */}
         <StackCard

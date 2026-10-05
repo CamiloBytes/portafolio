@@ -56,3 +56,9 @@ pre,
 .font-mono {
   font-family: var(--font-jetbrains-mono), monospace;
 }
+
+@media (min-width: 768px) {
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
         {/* Bloque Izquierdo: Identificador y Copyright */}
-        <div className="flex flex-wrap items-center justify-center gap-3 text-center sm:justify-start sm:text-left">
+        <div className="flex w-full flex-wrap items-center justify-center gap-3 text-center sm:w-auto sm:flex-nowrap sm:shrink-0 sm:justify-start sm:text-left">
           <Link
             href="/"
             className="font-mono text-xs font-semibold text-foreground transition-colors hover:text-primary sm:text-sm"
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           <span className="hidden text-[#3a494b] sm:inline" aria-hidden="true">
             |
           </span>
-          <span className="font-mono text-[11px] text-[#849495] sm:text-xs">
+          <span className="whitespace-nowrap font-mono text-[11px] text-[#849495] sm:text-xs">
             {footerData.copyright}
           </span>
         </div>
