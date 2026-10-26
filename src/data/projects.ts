@@ -79,31 +79,4 @@ export const projects: Project[] = [
         "La documentación del proyecto no publica benchmarks cuantitativos; sus capacidades funcionales están descritas en el README.",
     },
   },
-  {
-    id: "ia-test-node",
-    category: "IA / Backend",
-    title: "IA Test Node",
-    description:
-      "API Node.js para conversaciones con IA, persistencia de memoria y contexto dinámico, con respuestas en streaming y varios proveedores mediante round-robin.",
-    metric: {
-      label: "Transporte",
-      value: "Streaming SSE",
-      secondaryLabel: "Persistencia",
-      secondaryValue: "PostgreSQL + Prisma",
-    },
-    tags: ["Node.js", "AI", "Prisma", "PostgreSQL"],
-    accent: "secondary",
-    href: "#contact",
-    repoUrl: "https://github.com/CamiloBytes/ia-test-node",
-    rfc: {
-      architecture:
-        "Backend Node.js con servicio de chat, memoria persistida en PostgreSQL mediante Prisma e inyección de contexto dinámico.",
-      protocol:
-        "Endpoint POST /chat con respuestas de texto transmitidas mediante Server-Sent Events.",
-      guarantees:
-        "Historial conversacional persistente y distribución round-robin entre proveedores de modelos de IA.",
-      benchmarks:
-        "El README documenta soporte para Nvidia, Cerebras y Qwen, pero no publica métricas de rendimiento.",
-    },
-  },
 ];
