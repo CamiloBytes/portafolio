@@ -1,27 +1,29 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { generateContactEmailHtml } from "../../../components/emails/ContactEmailTemplate";
+import { contactSchema } from "../../../utils/validation";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
-
-    if (!name || !email || !message) {
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
       return NextResponse.json(
-        { error: "Todos los campos (nombre, correo y mensaje) son requeridos." },
+        { error: "El cuerpo de la solicitud no contiene un JSON válido." },
         { status: 400 }
       );
     }
 
-    // Validación básica de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const validationResult = contactSchema.safeParse(body);
+    if (!validationResult.success) {
       return NextResponse.json(
-        { error: "El correo electrónico ingresado no es válido." },
+        { error: validationResult.error.issues[0]?.message || "Los datos no son válidos." },
         { status: 400 }
       );
     }
 
+    const { name, email, message } = validationResult.data;
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {

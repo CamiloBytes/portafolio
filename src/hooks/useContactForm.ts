@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { sendContactMessage } from "../services/contactService";
-import { isValidEmail, isNonEmptyString } from "../utils/validation";
+import { contactSchema } from "../utils/validation";
 
 export type FormStatusType = "idle" | "loading" | "success" | "error";
 
@@ -20,14 +20,12 @@ export function useContactForm({ defaultStatus }: UseContactFormOptions) {
     async (e: React.FormEvent) => {
       e.preventDefault();
 
-      if (!isNonEmptyString(name) || !isNonEmptyString(email) || !isNonEmptyString(message)) {
-        setStatus("Error: Todos los campos del paquete son requeridos.");
-        setStatusType("error");
-        return;
-      }
-
-      if (!isValidEmail(email)) {
-        setStatus("Error: El canal de respuesta no contiene un correo válido.");
+      const validationResult = contactSchema.safeParse({ name, email, message });
+      if (!validationResult.success) {
+        const errorMessage =
+          validationResult.error.issues[0]?.message ||
+          "Los datos del paquete no son válidos.";
+        setStatus(`Error: ${errorMessage}`);
         setStatusType("error");
         return;
       }
@@ -37,7 +35,7 @@ export function useContactForm({ defaultStatus }: UseContactFormOptions) {
       setStatusType("loading");
 
       try {
-        const response = await sendContactMessage({ name, email, message });
+        const response = await sendContactMessage(validationResult.data);
         setStatus(response.message || "Paquete transmitido exitosamente (ACK 200).");
         setStatusType("success");
         setName("");
